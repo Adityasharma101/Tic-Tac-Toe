@@ -1,0 +1,33 @@
+.scoreBoard {
+  background-color: white;
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 5px;
+  width: 500px;
+  margin: 3rem auto;
+  font-weight: bold;
+  font-size: 22px;
+
+  .xScore {
+    display: flex;
+    justify-content: center;
+    color: red;
+    width: 5rem;
+    padding: 13px;
+    border-bottom: 5px solid transparent;
+    transition: 0.2s ease-in-out;
+  }
+  .oScore {
+    display: flex;
+    justify-content: center;
+    color: blue;
+    width: 5rem;
+    border-bottom: 5px solid transparent;
+    transition: 0.2s ease-in-out;
+    padding: 15px;
+  }
+
+  .border {
+    border-bottom: 5px solid rgb(68, 68, 68);
+  }
+}
