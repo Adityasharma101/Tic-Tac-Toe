@@ -12,7 +12,7 @@ const Box = ({ value, id, onHandleClick }) => {
 
     }
     return (
-        <button key={id} className='box' onClick={onHandleClick}>{sign}</button>
+        <button key={id} className='box winBox'  onClick={onHandleClick}>{sign}</button>
     )
 }
 

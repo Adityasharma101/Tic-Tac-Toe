@@ -8,25 +8,23 @@
   font-weight: bold;
   font-size: 22px;
 
-  .xScore {
+  .xScore , .oScore , .tieScore{
     display: flex;
     justify-content: center;
-    color: red;
     width: 5rem;
     padding: 13px;
     border-bottom: 5px solid transparent;
     transition: 0.2s ease-in-out;
   }
-  .oScore {
-    display: flex;
-    justify-content: center;
-    color: blue;
-    width: 5rem;
-    border-bottom: 5px solid transparent;
-    transition: 0.2s ease-in-out;
-    padding: 15px;
+  .xScore{
+    color: red;
   }
-
+  .oScore{
+    color: blue;
+  }
+  .tieScore{
+    color: black;
+  }
   .border {
     border-bottom: 5px solid rgb(68, 68, 68);
   }

@@ -8,6 +8,9 @@ const App = () => {
   const [playing, setplaying] = useState(true);
   const [XScore, setXScore] = useState(0);
   const [OScore, setOScore] = useState(0);
+  const [tieScore, settieScore] = useState(0);
+  let winTile = null;
+
   const [gameOver, setgameOver] = useState(false);
   const winCondition = [
     [0, 1, 2],
@@ -31,6 +34,9 @@ const App = () => {
 
     setboard(updatedBoard);
     const winner = checkWinner(updatedBoard);
+    if(winner){
+       console.log(winCondition[winTile]);
+    }
     setplaying(!playing);
 
     if (winner === "X") {
@@ -40,14 +46,26 @@ const App = () => {
       setOScore(OScore + 1);
       setgameOver(true);
     }
+
+    let filled = true;
+
+    updatedBoard.map((item)=>{
+      if(item === null){
+        filled = false;
+      }
+    })
+    if(filled){
+      settieScore(tieScore+1);
+    }
+
+
   };
 
   const checkWinner = (board) => {
     for (let i = 0; i < winCondition.length; i++) {
       const [a, b, c] = winCondition[i];
-      // console.log(board[a].type);
-
       if (board[a] && board[a] === board[b] && board[b] === board[c]) {
+        winTile=i;
         return board[a];
       }
     }
@@ -69,7 +87,7 @@ const App = () => {
   return (
     <div className="app">
       <h1>TIC-TAC-TOE</h1>
-      <ScoreBoard XScore={XScore} OScore={OScore} playing={playing} />
+      <ScoreBoard tieScore={tieScore} XScore={XScore} OScore={OScore} playing={playing} />
       <Board
         board={board}
         onHandleClick={gameOver === true ? reset : onHandleClick}
